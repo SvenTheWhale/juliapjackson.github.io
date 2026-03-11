@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Julia Jackson – Business Continuity Leader</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+
+<section>
+    <h1>Julia Jackson</h1>
+    <p>Saint Paul, MN • <a href="mailto:YourITAnalyst@gmail.com">YourITAnalyst@gmail.com</a> • 
+    <a href="https://www.linkedin.com/in/juliapjackson" target="_blank">linkedin.com/in/juliapjackson</a></p>
+</section>
+
+<hr>
+
+<section>
+    <h2>Professional Summary</h2>
+    <p>Business continuity leader with deep experience across the full continuity lifecycle and a focus on aligning continuity practices with real operational flow. I strengthen programs by grounding them in standards, regulatory requirements, and established business definitions while ensuring they remain practical for day‑to‑day operations. I take initiative to understand stakeholder expectations and drive continuous improvements that increase clarity, resilience, and audit credibility.</p>
+</section>
+
+<hr>
+
+<section>
+    <h2>Core Capabilities</h2>
+    <ul>
+        <li>Business Impact Analysis, Business Continuity Plans, and dependency mapping</li>
+        <li>Continuity strategy development aligned with ISO 22301, ISO 22318, and NIST</li>
+        <li>Governance design, documentation standards, and lifecycle maintenance</li>
+        <li>Supplier continuity and critical‑dependency risk identification</li>
+        <li>Cross‑functional facilitation across manufacturing, supply chain, IT, FSQR, HR, and corporate teams</li>
+        <li>Incident participation, structured communication, and after‑action integration</li>
+        <li>Continuous improvement, roadmap creation, and Agile work‑management practices</li>
+        <li>Operational risk analysis, cutover readiness, and transition planning</li>
+    </ul>
+</section>
+
+<hr>
+
+<section>
+    <h2>Professional Experience</h2>
+
+    <h3>Cargill — Risk & Security Analyst III</h3>
+    <p><strong>Business Continuity Leadership | CPNA</strong><br>
+    Managed the BCM program for a multi‑site North American enterprise, driving lifecycle execution, standards alignment, and operational readiness across 46 plants and 9 distribution centers.</p>
+    <ul>
+        <li>Managed the Business Continuity Management (BCM) program for Cargill Protein North America, overseeing lifecycle activities, governance, stakeholder engagement, and cross‑functional alignment across the enterprise.</li>
+        <li>Took CPNA from 0% to 100% completion of BIAs and BCP development across 46 plants and 9 distribution centers, establishing a consistent, standards‑aligned approach to identifying critical activities and dependencies.</li>
+        <li>Aligned continuity practices with ISO 22301, ISO 22318, NIST, and corporate policies, ensuring lifecycle work remained compliant, structured, and grounded in real operational flow.</li>
+        <li>Evaluated global customer audit questionnaires (EMEA, LATAM, APAC) by mapping questions to ISO/NIST expectations; analyzed corporate responses for gaps and inconsistencies; and developed a standardized, audience‑appropriate response framework that strengthened audit credibility.</li>
+        <li>Designed a more accessible and operationally intuitive way for stakeholders to view and use continuity strategies, improving clarity, usability, and day‑to‑day applicability across plants and distribution centers.</li>
+        <li>Facilitated dependency‑mapping sessions and strategy discussions with plant SMEs, identifying critical applications, equipment, and third‑party dependencies and documenting practical continuity steps for outages.</li>
+        <li>Led a structured continuous‑improvement initiative to close customer audit and documentation gaps: performed gap analysis, prioritized remediation, built
