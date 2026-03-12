@@ -18,10 +18,6 @@
     <a href="business-continuity-resume.html">Résumé – Business Continuity</a>
     <a href="contact.html">Contact</a>
 </nav>
-
-    <!-- Include your site header/navigation here -->
-    <!-- Example: {% include header.html %} -->
-
     <main class="content">
         <h1>Résumé</h1>
 
@@ -32,7 +28,7 @@
 </p>
 
         <section>
-            <h2>Julia Jackson</h2>
+            <h2>Julia Jackson NEW</h2>
             <p>St. Paul, MN<br>
             <a href="mailto:YourITAnalyst@gmail.com">YourITAnalyst@gmail.com</a><br>
             <a href="https://www.linkedin.com/in/juliapjackson" target="_blank">www.linkedin.com/in/juliapjackson</a></p>
