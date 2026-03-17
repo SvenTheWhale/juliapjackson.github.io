@@ -1,341 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Julia Jackson – Senior Business Systems Analyst</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --accent: #1f4e79;
-      --text: #222222;
-      --muted: #555555;
-      --border: #dddddd;
-    }
+    <meta charset="UTF-8">
+    <title>Résumé – Business Systems Analyst | Julia Jackson</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    * {
-      box-sizing: border-box;
-    }
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f7f7f7;
+            color: #222;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      color: var(--text);
-      background-color: #f7f7f7;
-    }
+        /* NAVIGATION */
+        nav {
+            background: white;
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+        }
 
-    .resume {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 40px 48px;
-      background: #ffffff;
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    }
+        nav a {
+            margin: 0 12px;
+            text-decoration: none;
+            color: #1f4e79;
+            font-weight: 600;
+        }
 
-    .header {
-      text-align: center;
-      margin-bottom: 24px;
-    }
+        nav a:hover {
+            text-decoration: underline;
+        }
 
-    .name {
-      font-size: 2rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      margin: 0 0 8px 0;
-    }
+        /* PAGE CONTAINER */
+        .resume-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: white;
+            padding: 40px 50px;
+            border: 1px solid #ddd;
+        }
 
-    .contact {
-      font-size: 0.95rem;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 10px;
-    }
+        h1 {
+            text-align: center;
+            letter-spacing: 0.08em;
+            margin-bottom: 5px;
+        }
 
-    .contact a {
-      color: var(--accent);
-      text-decoration: none;
-    }
+        .contact {
+            text-align: center;
+            color: #555;
+            margin-bottom: 30px;
+        }
 
-    .contact a:hover {
-      text-decoration: underline;
-    }
+        .contact a {
+            color: #1f4e79;
+            text-decoration: none;
+        }
 
-    h2 {
-      font-size: 1rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 4px;
-      margin-top: 24px;
-      margin-bottom: 10px;
-    }
+        h2 {
+            color: #1f4e79;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            font-size: 1rem;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 4px;
+            margin-top: 30px;
+        }
 
-    .summary {
-      font-size: 0.98rem;
-      line-height: 1.5;
-    }
+        ul {
+            margin-top: 8px;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
 
-    .section {
-      margin-bottom: 12px;
-    }
+        .section {
+            margin-bottom: 20px;
+        }
 
-    .capabilities {
-      font-size: 0.95rem;
-      line-height: 1.6;
-    }
-
-    .capabilities span {
-      white-space: nowrap;
-    }
-
-    .experience-item {
-      margin-bottom: 16px;
-    }
-
-    .role-line {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 6px;
-      font-weight: 600;
-      font-size: 0.98rem;
-    }
-
-    .role-title {
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-    }
-
-    .company {
-      font-weight: 600;
-    }
-
-    .location-dates {
-      font-size: 0.9rem;
-      color: var(--muted);
-    }
-
-    ul {
-      margin: 6px 0 0 18px;
-      padding: 0;
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    li {
-      margin-bottom: 4px;
-    }
-
-    .edu-item,
-    .cert-item {
-      font-size: 0.95rem;
-      margin-bottom: 4px;
-    }
-
-    .edu-degree {
-      font-weight: 600;
-    }
-
-    .edu-school {
-      color: var(--muted);
-    }
-
-    @media (max-width: 640px) {
-      .resume {
-        margin: 16px;
-        padding: 24px 18px;
-      }
-
-      .role-line {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-
-      .name {
-        font-size: 1.6rem;
-      }
-    }
-  </style>
+        .edu-item, .cert-item {
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
+
 <body>
-  <main class="resume">
-    <header class="header">
-      <h1 class="name">JULIA JACKSON</h1>
-      <div class="contact">
-        <span>Saint Paul, MN</span>
-        <span>|</span>
-        <a href="mailto:YourITAnalyst@gmail.com">YourITAnalyst@gmail.com</a>
-        <span>|</span>
-        <a href="https://www.linkedin.com/in/juliapjackson" target="_blank" rel="noopener noreferrer">
-          linkedin.com/in/juliapjackson
-        </a>
-        <span>|</span>
-        <span>605-490-0744</span>
-      </div>
-    </header>
 
-    <section class="section">
-      <h2>Summary</h2>
-      <p class="summary">
-        Senior Business Systems Analyst experienced in gathering and clarifying business, functional, and technical requirements;
-        facilitating JAD sessions; and producing clear, audit-ready documentation. Skilled in Agile delivery using Jira and
-        Confluence (administrator-level), process mapping in Visio, and supporting UAT to ensure solutions meet business needs.
-        Known for structured analysis, strong written communication, and aligning SMEs across technical, operational, and business
-        teams in regulated environments.
-      </p>
-    </section>
+    <!-- NAVIGATION (same across all pages) -->
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="strengths.html">Strengths</a>
+        <a href="experience.html">Experience</a>
+        <a href="business-systems-analyst-resume.html">Résumé – Business Systems Analyst</a>
+        <a href="business-continuity-resume.html">Résumé – Business Continuity</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 
-    <section class="section">
-      <h2>Core capabilities</h2>
-      <p class="capabilities">
-        <span>Requirements Discovery &amp; Clarification</span> •
-        <span>JAD Facilitation</span> •
-        <span>Technical Writing &amp; Documentation Quality Review</span> •
-        <span>SDLC (Waterfall &amp; Agile)</span> •
-        <span>Jira &amp; Confluence (Administrator-Level)</span> •
-        <span>UAT Test Case Development &amp; Execution</span> •
-        <span>Process Mapping (Visio)</span> •
-        <span>As-Is/To-Be Analysis</span> •
-        <span>Change Requests &amp; Change Control</span> •
-        <span>Cross-Functional Alignment</span> •
-        <span>Operational &amp; Continuity Analysis</span> •
-        <span>Archer (GRC) &amp; Fusion (BCM)</span> •
-        <span>Microsoft Project &amp; Planner (Working Proficiency)</span> •
-        <span>Google Workspace</span>
-      </p>
-    </section>
+    <div class="resume-container">
 
-    <section class="section">
-      <h2>Experience</h2>
+        <h1>JULIA JACKSON</h1>
 
-      <div class="experience-item">
-        <div class="role-line">
-          <div>
-            <span class="role-title">Security and Risk Analyst III / Business Continuity Manager</span>
-            <span class="company"> — CARGILL</span>
-          </div>
+        <div class="contact">
+            Saint Paul, MN |
+            <a href="mailto:YourITAnalyst@gmail.com">YourITAnalyst@gmail.com</a> |
+            <a href="https://www.linkedin.com/in/juliapjackson" target="_blank">linkedin.com/in/juliapjackson</a> |
+            605‑490‑0744
         </div>
+
+        <h2>Summary</h2>
+        <p>
+            Senior Business Systems Analyst experienced in gathering and clarifying business, functional, and technical requirements;
+            facilitating JAD sessions; and producing clear, audit-ready documentation. Skilled in Agile delivery using Jira and
+            Confluence (administrator-level), process mapping in Visio, and supporting UAT to ensure solutions meet business needs.
+            Known for structured analysis, strong written communication, and aligning SMEs across technical, operational, and business
+            teams in regulated environments.
+        </p>
+
+        <h2>Core Capabilities</h2>
+        <p>
+            Requirements Discovery & Clarification • JAD Facilitation • Technical Writing & Documentation Quality Review • SDLC
+            (Waterfall & Agile) • Jira & Confluence (Administrator-Level) • UAT Test Case Development & Execution • Process Mapping
+            (Visio) • As‑Is/To‑Be Analysis • Change Requests & Change Control • Cross‑Functional Alignment • Operational & Continuity
+            Analysis • Archer (GRC) & Fusion (BCM) • Microsoft Project & Planner • Google Workspace
+        </p>
+
+        <h2>Experience</h2>
+
+        <h3>CARGILL — Security and Risk Analyst III / Business Continuity Manager</h3>
         <ul>
-          <li>
-            Served as the Confluence administrator for the CPNA business, designing space architecture, templates, and documentation
-            standards to support continuity workflows, SME collaboration, and audit-ready content.
-          </li>
-          <li>
-            Managed permissions, content structure, and governance within Confluence to ensure documentation accuracy, version control,
-            and cross-team usability.
-          </li>
-          <li>
-            Participated as a SME in requirements discussions for Archer enhancements and the enterprise migration to Fusion,
-            contributing to UI design considerations, data migration requirements, and ISO-aligned workflow applicability.
-          </li>
-          <li>
-            Developed and executed UAT test cases for Archer enhancements and the Fusion migration, validating system behavior,
-            workflow logic, and data integrity against business and operational requirements.
-          </li>
-          <li>
-            Analyzed gaps between Fusion’s workflow capabilities and manufacturing operational needs, leading to the design and
-            delivery of a Confluence-based Runbook that accurately reflected production and logistics workflows.
-          </li>
-          <li>
-            Managed the full BCM program for the CPNA business, including epics, user stories, and tasks in Jira to support planning,
-            prioritization, and delivery.
-          </li>
-          <li>
-            Facilitated JAD-style working sessions with SMEs and technical teams to confirm requirements, dependencies, and system
-            constraints.
-          </li>
-          <li>
-            Supported UAT and operational readiness activities to ensure requirements were testable, traceable, and aligned with
-            business needs.
-          </li>
+            <li>Served as the Confluence administrator for the CPNA business, designing space architecture, templates, and documentation standards to support continuity workflows, SME collaboration, and audit-ready content.</li>
+            <li>Managed permissions, content structure, and governance within Confluence to ensure documentation accuracy, version control, and cross-team usability.</li>
+            <li>Participated as a SME in requirements discussions for Archer enhancements and the enterprise migration to Fusion, contributing to UI design considerations, data migration requirements, and ISO-aligned workflow applicability.</li>
+            <li>Developed and executed UAT test cases for Archer enhancements and the Fusion migration, validating system behavior, workflow logic, and data integrity.</li>
+            <li>Analyzed gaps between Fusion’s workflow capabilities and manufacturing operational needs, leading to the design and delivery of a Confluence-based Runbook reflecting production and logistics workflows.</li>
+            <li>Managed the full BCM program for the CPNA business using Jira epics, user stories, and tasks to support planning and delivery.</li>
+            <li>Facilitated JAD-style working sessions with SMEs and technical teams to confirm requirements, dependencies, and system constraints.</li>
+            <li>Supported UAT and operational readiness activities to ensure requirements were testable, traceable, and aligned with business needs.</li>
         </ul>
-      </div>
 
-      <div class="experience-item">
-        <div class="role-line">
-          <div>
-            <span class="role-title">Senior Business Systems Analyst</span>
-            <span class="company"> — SECURIAN FINANCIAL</span>
-          </div>
-        </div>
+        <h3>SECURIAN FINANCIAL — Senior Business Systems Analyst</h3>
         <ul>
-          <li>
-            Managed one of three Agile workstreams, coordinating backlog refinement, sprint planning, and cross-team alignment across
-            a team representing one-third of the overall program.
-          </li>
-          <li>
-            Facilitated requirements discovery with SMEs across business operations, technical teams, and product owners to clarify
-            scope, surface dependencies, and resolve conflicting interpretations.
-          </li>
-          <li>
-            Developed user stories, acceptance criteria, and functional specifications using Jira and Confluence.
-          </li>
-          <li>
-            Created process documentation, data mapping, and workflow clarifications to support system changes and regulatory
-            compliance.
-          </li>
-          <li>
-            Partnered with QA and development teams to ensure requirements were testable, traceable, and aligned with acceptance
-            criteria.
-          </li>
+            <li>Managed one of three Agile workstreams, coordinating backlog refinement, sprint planning, and cross-team alignment across a team representing one-third of the overall program.</li>
+            <li>Facilitated requirements discovery with SMEs across business operations, technical teams, and product owners to clarify scope and surface dependencies.</li>
+            <li>Developed user stories, acceptance criteria, and functional specifications using Jira and Confluence.</li>
+            <li>Created process documentation, data mapping, and workflow clarifications to support system changes and regulatory compliance.</li>
+            <li>Partnered with QA and development teams to ensure requirements were testable, traceable, and aligned with acceptance criteria.</li>
         </ul>
-      </div>
 
-      <div class="experience-item">
-        <div class="role-line">
-          <div>
-            <span class="role-title">Business Analyst</span>
-            <span class="company"> — GREEN TREE / DITECH</span>
-          </div>
-        </div>
+        <h3>GREEN TREE / DITECH — Business Analyst</h3>
         <ul>
-          <li>
-            Supported project coordination activities during the enterprise migration of 1.5M loan records, including tracking
-            deliverables and partnering with offshore QA resources.
-          </li>
-          <li>
-            Collaborated with SMEs across servicing, operations, and technical teams to clarify requirements and validate data
-            transformation rules.
-          </li>
-          <li>
-            Documented business processes and system interactions to support migration readiness and downstream impact analysis.
-          </li>
-          <li>
-            Ensured requirements were testable, traceable, and aligned with regulatory expectations.
-          </li>
+            <li>Supported project coordination activities during the enterprise migration of 1.5M loan records, including tracking deliverables and partnering with offshore QA resources.</li>
+            <li>Collaborated with SMEs across servicing, operations, and technical teams to clarify requirements and validate data transformation rules.</li>
+            <li>Documented business processes and system interactions to support migration readiness and downstream impact analysis.</li>
+            <li>Ensured requirements were testable, traceable, and aligned with regulatory expectations.</li>
         </ul>
-      </div>
-    </section>
 
-    <section class="section">
-      <h2>Education &amp; certifications</h2>
+        <h2>Education & Certifications</h2>
 
-      <div class="edu-item">
-        <span class="edu-degree">M.S., Strategic Leadership</span>
-        <span class="edu-school"> — Black Hills State University</span>
-      </div>
-      <div class="edu-item">
-        <span class="edu-degree">B.S., Business Administration (Minor: Cybernetics)</span>
-        <span class="edu-school"> — San José State University</span>
-      </div>
-      <div class="edu-item">
-        <span class="edu-degree">A.A., Liberal Arts</span>
-        <span class="edu-school"> — De Anza College</span>
-      </div>
+        <div class="edu-item"><strong>M.S., Strategic Leadership</strong> — Black Hills State University</div>
+        <div class="edu-item"><strong>B.S., Business Administration (Minor: Cybernetics)</strong> — San José State University</div>
+        <div class="edu-item"><strong>A.A., Liberal Arts</strong> — De Anza College</div>
 
-      <div class="cert-item">
-        <span class="edu-degree">Certified Business Continuity Professional (CBCP)</span>
-        <span class="edu-school"> — DRI International</span>
-      </div>
-      <div class="cert-item">
-        <span class="edu-degree">Completed coursework for Certified Business Continuity Auditor (CBCA)</span>
-        <span class="edu-school"> — DRI International</span>
-      </div>
-    </section>
-  </main>
+        <div class="cert-item"><strong>Certified Business Continuity Professional (CBCP)</strong> — DRI International</div>
+        <div class="cert-item"><strong>Completed coursework for Certified Business Continuity Auditor (CBCA)</strong> — DRI International</div>
+
+    </div>
+
 </body>
 </html>
