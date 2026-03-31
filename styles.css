@@ -135,3 +135,78 @@ body {
     background: #ffffff !important;
     color: #222 !important;
 }
+/* ================================
+   JULIAOS COMPONENTS
+   ================================ */
+
+.section {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.section-title {
+    color: #86BC25;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.section-body {
+    margin-top: 12px;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+}
+
+.card {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 6px;
+    transition: box-shadow 0.2s ease;
+}
+
+.card:hover {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.card-soft {
+    background: #f9f9f9;
+}
+
+.card-title {
+    margin-top: 0;
+    color: #86BC25;
+    font-weight: 600;
+}
+
+.card-body {
+    margin-top: 10px;
+    color: #333;
+}
+
+.card-meta {
+    margin-top: 16px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.card-meta-pill {
+    background: #eee;
+    padding: 6px 10px;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: #444;
+}
