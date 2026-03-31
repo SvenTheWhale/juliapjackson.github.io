@@ -338,3 +338,11 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     gap: 24px;
 }
+/* ================================
+   JULIAOS READABILITY BASELINE
+   ================================ */
+
+body {
+    background: #ffffff !important;   /* pure white */
+    color: #1a1a1a !important;        /* darker, more readable text */
+}
