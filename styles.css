@@ -26,21 +26,15 @@ a:hover {
 
 nav {
     background: white;
-    padding: 18px;
+    padding: 16px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
 nav a {
-    margin: 0 16px;
+    margin: 0 14px;
     font-weight: 600;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-}
-
-nav a:hover {
-    opacity: 0.75;
+    letter-spacing: 0.02em;
 }
 
 /* ================================
@@ -55,15 +49,14 @@ section {
 }
 
 /* ================================
-   HEADINGS — Deloitte Style
+   HEADINGS
    ================================ */
 
 h1 {
     text-align: center;
-    margin-bottom: 10px;
-    letter-spacing: 0.10em;
+    margin-bottom: 6px;
+    letter-spacing: 0.08em;
     font-size: 2rem;
-    text-transform: uppercase;
 }
 
 h2 {
@@ -72,18 +65,14 @@ h2 {
     letter-spacing: 0.18em;
     font-size: 1rem;
     margin-top: 50px;
-    margin-bottom: 12px;
-    font-weight: 700;
+    margin-bottom: 10px;
 }
 
 h3 {
-    color: #86BC25;
-    text-transform: uppercase;
-    letter-spacing: 0.12em;
-    font-size: 0.95rem;
-    margin-top: 40px;
-    margin-bottom: 8px;
+    color: #86BC25; /* FIXED: now consistent with site */
+    margin-top: 28px;
     font-weight: 600;
+    letter-spacing: 0.04em;
 }
 
 /* ================================
@@ -106,9 +95,6 @@ ul {
     color: white;
     border-radius: 4px;
     font-weight: bold;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-    font-size: 0.85rem;
 }
 
 .download-button:hover {
@@ -121,12 +107,9 @@ ul {
 
 footer {
     text-align: center;
-    padding: 24px;
+    padding: 20px;
     margin-top: 60px;
     background: #ffffff;
     border-top: 1px solid #ddd;
     color: #555;
-    font-size: 0.85rem;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
 }
