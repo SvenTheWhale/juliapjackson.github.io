@@ -127,3 +127,11 @@ footer {
     margin: 0 auto;
     padding: 0 20px;    /* matches your section padding */
 }
+/* ================================
+   JULIAOS OVERRIDE
+   ================================ */
+
+body {
+    background: #ffffff !important;
+    color: #222 !important;
+}
