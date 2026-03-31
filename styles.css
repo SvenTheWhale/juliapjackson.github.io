@@ -113,3 +113,17 @@ footer {
     border-top: 1px solid #ddd;
     color: #555;
 }
+/* ================================
+   HERO SECTION
+   ================================ */
+
+.hero {
+    text-align: center;
+    padding: 60px 0; /* optional: gives breathing room */
+}
+
+.hero-inner {
+    max-width: 900px;   /* matches your section/main width */
+    margin: 0 auto;
+    padding: 0 20px;    /* matches your section padding */
+}
