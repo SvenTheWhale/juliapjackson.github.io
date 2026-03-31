@@ -1,0 +1,67 @@
+<!-- QUICK START -->
+<section id="quickstart" class="section">
+  <div class="section-header">
+    <h2 class="section-title">Quick start guide</h2>
+    <p class="section-subtitle">
+      How to “boot” JuliaOS for your scenario in a few clear steps—no installation required.
+    </p>
+  </div>
+
+  <div class="grid-2">
+    <article class="card card-soft">
+      <div class="card-label">Step‑by‑step</div>
+      <h3 class="card-title">Start a new “game” with JuliaOS</h3>
+      <ol class="rule-list" style="list-style: decimal; padding-left: 18px;">
+        <li>
+          <span class="rule-title">Name the puzzle.</span>
+          <span class="rule-desc">
+            “We’re migrating X,” “We keep breaking Y,” or “No one agrees on Z.”
+          </span>
+        </li>
+        <li>
+          <span class="rule-title">Expose the constraints.</span>
+          <span class="rule-desc">
+            Time, risk tolerance, politics, regulations—JuliaOS runs best on real constraints.
+          </span>
+        </li>
+        <li>
+          <span class="rule-title">Load the pieces.</span>
+          <span class="rule-desc">
+            Systems, teams, data, vendors, customers—anything that can move or be affected.
+          </span>
+        </li>
+        <li>
+          <span class="rule-title">Walk a real scenario.</span>
+          <span class="rule-desc">
+            Choose a concrete event (an order, an outage, a release) and trace it end‑to‑end.
+          </span>
+        </li>
+        <li>
+          <span class="rule-title">Capture the pattern.</span>
+          <span class="rule-desc">
+            Turn what we discover into diagrams, narratives, and test cases your teams can reuse.
+          </span>
+        </li>
+      </ol>
+    </article>
+
+    <article class="card">
+      <div class="card-label">Config snippet</div>
+      <h3 class="card-title">JuliaOS as a configuration file</h3>
+      <div class="code-block">
+        <span class="code-comment"># Minimal configuration to engage JuliaOS</span><br />
+        <span class="code-key">juliaOS</span>: {<br />
+        &nbsp;&nbsp;<span class="code-key">mode</span>: <span class="code-string">"analysis+stabilization"</span>,<br />
+        &nbsp;&nbsp;<span class="code-key">inputs</span>: [<span class="code-string">"systems"</span>, <span class="code-string">"people"</span>, <span class="code-string">"constraints"</span>],<br />
+        &nbsp;&nbsp;<span class="code-key">requires_polish</span>: <span class="code-boolean">false</span>,<br />
+        &nbsp;&nbsp;<span class="code-key">outputs</span>: [<span class="code-string">"maps"</span>, <span class="code-string">"narratives"</span>, <span class="code-string">"decision_paths"</span>],<br />
+        &nbsp;&nbsp;<span class="code-key">tone</span>: <span class="code-string">"calm, precise, ego-free"</span>,<br />
+        &nbsp;&nbsp;<span class="code-key">expansions_enabled</span>: [<span class="code-string">"migration_lab"</span>, <span class="code-string">"incident_codex"</span>]<br />
+        }<br /><br />
+        <span class="code-comment"># To start a session, set:</span><br />
+        <span class="code-key">juliaOS.session.puzzle</span> =
+        <span class="code-string">"Describe the system or problem in one honest sentence."</span>
+      </div>
+    </article>
+  </div>
+</section>
