@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JuliaOS | Release Notes</title>
+  <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-logo">Julia Jackson</a>
+    </div>
+    <div class="nav-right">
+      <a href="../index.html">Home</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../business-systems-analyst-resume.html">Résumé</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="hero-title">Release Notes</h1>
+    <p class="hero-subtitle">
+      Version history and evolution of JuliaOS — a living cognitive operating system built for clarity, pattern recognition, and calm navigation of complexity.
+    </p>
+  </header>
+
+  <!-- SECTION 1 -->
+  <section class="section">
+    <h2 class="section-title">v1.0 — Initial Launch</h2>
+    <p class="section-body">
+      The foundational release of JuliaOS introduced the core architecture and established the system’s 
+      identity as a cognitive operating system. This version included:
+    </p>
+    <p class="section-body">
+      <strong>• Gameboard Interface:</strong> The primary visualization layer.<br>
+      <strong>• Analytical Craft Engine:</strong> The structured analysis mechanic.<br>
+      <strong>• Inquiry Pattern:</strong> The disciplined questioning framework.<br>
+      <strong>• Human‑System Interface:</strong> The module for interpreting human behavior.<br>
+      <strong>• Continuity Suite:</strong> The resilience and stability layer.<br>
+      <strong>• Rulebook:</strong> The governing document for system mechanics and philosophy.
+    </p>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section class="section">
+    <h2 class="section-title">v1.1 — Inquiry Pattern Enhancements</h2>
+    <p class="section-body">
+      This update refined the Inquiry Pattern by expanding the question taxonomy and improving the 
+      sequencing logic. Enhancements included:
+    </p>
+    <p class="section-body">
+      <strong>• New boundary question types</strong> for clarifying scope.<br>
+      <strong>• Improved contradiction detection</strong> for narrative vs. reality gaps.<br>
+      <strong>• Integration hooks</strong> for smoother interaction with the Gameboard Interface.
+    </p>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section class="section">
+    <h2 class="section-title">v1.2 — Human‑System Interface Refinements</h2>
+    <p class="section-body">
+      This release deepened the system’s ability to interpret human behavior and emotional signals. 
+      Updates included:
+    </p>
+    <p class="section-body">
+      <strong>• Expanded energy state categories</strong> for more accurate interpretation.<br>
+      <strong>• Enhanced communication‑pattern mapping</strong> for cross‑team analysis.<br>
+      <strong>• New emotional signal indicators</strong> integrated into the Analytical Craft Engine.
+    </p>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section class="section">
+    <h2 class="section-title">v1.3 — Continuity Suite Integration</h2>
+    <p class="section-body">
+      This update strengthened the resilience layer of JuliaOS by integrating the Continuity Suite more 
+      deeply into the system’s core mechanics. Improvements included:
+    </p>
+    <p class="section-body">
+      <strong>• Scenario modeling templates</strong> for stress‑testing assumptions.<br>
+      <strong>• Stability mapping enhancements</strong> for identifying fragile components.<br>
+      <strong>• Risk interpretation pathways</strong> connected to the Gameboard Interface.
+    </p>
+  </section>
+
+  <!-- SECTION 5 -->
+  <section class="section">
+    <h2 class="section-title">v1.4 — Expansion Framework Launch</h2>
+    <p class="section-body">
+      This release introduced the modular expansion system, allowing JuliaOS to grow without disrupting 
+      the core architecture. Additions included:
+    </p>
+    <p class="section-body">
+      <strong>• Expansion compatibility model</strong> for seamless integration.<br>
+      <strong>• New mechanics expansion slots</strong> for future modules.<br>
+      <strong>• The Scenario Deck</strong> as the first official expansion pack.
+    </p>
+  </section>
+
+  <!-- SECTION 6 -->
+  <section class="section">
+    <h2 class="section-title">v1.5 — Visual & Structural Refinements</h2>
+    <p class="section-body">
+      This update aligned all JuliaOS pages to the Rulebook layout, improving readability, consistency, 
+      and user experience. Enhancements included:
+    </p>
+    <p class="section-body">
+      <strong>• Unified typography system</strong> across all modules.<br>
+      <strong>• Single‑column layout</strong> for clarity and calm navigation.<br>
+      <strong>• Removal of legacy card/grid components</strong> from OS pages.<br>
+      <strong>• Deloitte‑green section titles</strong> for brand consistency.
+    </p>
+  </section>
+
+  <!-- SECTION 7 -->
+  <section class="section">
+    <h2 class="section-title">Future Roadmap</h2>
+    <p class="section-body">
+      JuliaOS is designed to evolve. Future releases may include:
+    </p>
+    <p class="section-body">
+      <strong>• Alignment Engine 2.0</strong> with enhanced conflict‑resolution mechanics.<br>
+      <strong>• Expanded Human‑System models</strong> for deeper behavioral insight.<br>
+      <strong>• New visualization modes</strong> for the Gameboard Interface.<br>
+      <strong>• Additional continuity stress packs</strong> for advanced scenario testing.<br>
+      <strong>• Entirely new worlds</strong> added through major expansions.
+    </p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Julia Jackson — JuliaOS v1.0</p>
+  </footer>
+
+</body>
+</html>
