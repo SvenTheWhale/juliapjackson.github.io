@@ -1,993 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>JuliaOS – The Cognitive Operating System</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <style>
-    :root {
-      --bg: #05060a;
-      --bg-alt: #0b0d14;
-      --accent: #ffb347;
-      --accent-soft: rgba(255, 179, 71, 0.12);
-      --accent-strong: #ff8c42;
-      --text: #f5f5f7;
-      --muted: #a5a7b5;
-      --border: #262938;
-      --card: #10121b;
-      --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.55);
-      --radius-lg: 18px;
-      --radius-md: 12px;
-      --radius-pill: 999px;
-      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Segoe UI", sans-serif;
-      --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-        Consolas, "Liberation Mono", "Courier New", monospace;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: var(--font-sans);
-      background: radial-gradient(circle at top, #15182a 0, #05060a 55%);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-    }
-
-    a {
-      color: var(--accent);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .page {
-      max-width: 1120px;
-      margin: 0 auto;
-      padding: 32px 20px 64px;
-    }
-
-    header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      margin-bottom: 32px;
-    }
-
-    .logo-mark {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .logo-orb {
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: conic-gradient(
-        from 210deg,
-        #ffb347,
-        #ff8c42,
-        #ffd56a,
-        #ffb347
-      );
-      box-shadow: 0 0 24px rgba(255, 179, 71, 0.6);
-      position: relative;
-    }
-
-    .logo-orb::after {
-      content: "";
-      position: absolute;
-      inset: 6px;
-      border-radius: inherit;
-      background: radial-gradient(circle at 30% 20%, #ffffff, transparent 55%);
-      mix-blend-mode: screen;
-      opacity: 0.9;
-    }
-
-    .logo-text-main {
-      font-weight: 650;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .logo-text-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: #6f7285;
-    }
-
-    nav {
-      display: flex;
-      gap: 16px;
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--muted);
-    }
-
-    nav a {
-      color: var(--muted);
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid transparent;
-    }
-
-    nav a:hover {
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.02);
-      text-decoration: none;
-    }
-
-    .pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 4px 10px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(255, 179, 71, 0.35);
-      background: radial-gradient(circle at top left, #2a2220, #14131a);
-      color: var(--accent);
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-    }
-
-    .pill-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #4ade80;
-      box-shadow: 0 0 12px rgba(74, 222, 128, 0.9);
-    }
-
-    .layout-main {
-      display: grid;
-      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
-      gap: 28px;
-      align-items: flex-start;
-      margin-bottom: 40px;
-    }
-
-    @media (max-width: 880px) {
-      .layout-main {
-        grid-template-columns: minmax(0, 1fr);
-      }
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      nav {
-        flex-wrap: wrap;
-      }
-    }
-
-    .hero-card {
-      background: radial-gradient(circle at top left, #1b1822, #0b0d14);
-      border-radius: 26px;
-      padding: 22px 22px 24px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0 0, rgba(255, 179, 71, 0.12), transparent 55%),
-        radial-gradient(circle at 100% 0, rgba(148, 163, 253, 0.12), transparent 55%);
-      opacity: 0.9;
-      pointer-events: none;
-    }
-
-    .hero-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .hero-kicker {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .hero-title {
-      font-size: 32px;
-      line-height: 1.15;
-      letter-spacing: 0.02em;
-      margin: 0 0 10px;
-    }
-
-    .hero-title span {
-      color: var(--accent);
-    }
-
-    .hero-subtitle {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 520px;
-      line-height: 1.5;
-      margin-bottom: 18px;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 18px;
-      align-items: flex-start;
-    }
-
-    @media (max-width: 720px) {
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .hero-panel {
-      background: rgba(5, 6, 10, 0.7);
-      border-radius: 18px;
-      padding: 14px 14px 16px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      backdrop-filter: blur(16px);
-    }
-
-    .hero-panel-title {
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 8px;
-    }
-
-    .hero-panel-body {
-      font-size: 13px;
-      color: #d4d4dd;
-      line-height: 1.5;
-    }
-
-    .hero-panel-body strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .hero-meta-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .hero-meta-tag {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.35);
-    }
-
-    .hero-meta-tag span {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .side-card {
-      background: linear-gradient(145deg, #0b0d14, #151827);
-      border-radius: 22px;
-      padding: 18px 18px 20px;
-      border: 1px solid rgba(255, 255, 255, 0.04);
-      box-shadow: var(--shadow-soft);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .side-card::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background: radial-gradient(circle at 10% 0, rgba(255, 179, 71, 0.16), transparent 55%);
-      opacity: 0.7;
-      pointer-events: none;
-    }
-
-    .side-inner {
-      position: relative;
-      z-index: 1;
-    }
-
-    .side-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .side-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 10px;
-    }
-
-    .side-body {
-      font-size: 13px;
-      color: #d4d4dd;
-      line-height: 1.5;
-      margin-bottom: 14px;
-    }
-
-    .side-badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 11px;
-    }
-
-    .side-badge {
-      padding: 4px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.4);
-      color: var(--muted);
-    }
-
-    .side-badge span {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .section {
-      margin-bottom: 40px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: var(--muted);
-    }
-
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--muted);
-      max-width: 420px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    @media (max-width: 880px) {
-      .grid-3,
-      .grid-2 {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: var(--radius-lg);
-      padding: 14px 14px 16px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 26px rgba(0, 0, 0, 0.5);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card-soft {
-      background: radial-gradient(circle at top left, #171824, #090b11);
-    }
-
-    .card-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 6px;
-    }
-
-    .card-title {
-      font-size: 15px;
-      font-weight: 600;
-      margin-bottom: 8px;
-    }
-
-    .card-body {
-      font-size: 13px;
-      color: #d4d4dd;
-      line-height: 1.5;
-      margin-bottom: 10px;
-    }
-
-    .card-body strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
-    .card-meta {
-      font-size: 11px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
-    }
-
-    .card-meta-pill {
-      padding: 3px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      background: rgba(0, 0, 0, 0.4);
-    }
-
-    .card-meta-pill span {
-      color: var(--accent);
-      font-weight: 500;
-    }
-
-    .rulebook-layout {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 18px;
-    }
-
-    @media (max-width: 880px) {
-      .rulebook-layout {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
-    .rule-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-      font-size: 13px;
-      color: #d4d4dd;
-    }
-
-    .rule-list li {
-      padding: 8px 0;
-      border-bottom: 1px dashed rgba(255, 255, 255, 0.06);
-    }
-
-    .rule-tag {
-      display: inline-block;
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.16em;
-      color: var(--muted);
-      margin-bottom: 4px;
-    }
-
-    .rule-title {
-      font-weight: 600;
-      color: var(--accent);
-    }
-
-    .rule-desc {
-      display: block;
-      color: #d4d4dd;
-      margin-top: 2px;
-    }
-
-    .code-block {
-      font-family: var(--font-mono);
-      font-size: 12px;
-      background: #05060a;
-      border-radius: 12px;
-      padding: 10px 12px;
-      border: 1px solid #262938;
-      color: #e5e7eb;
-      overflow-x: auto;
-      line-height: 1.5;
-    }
-
-    .code-key {
-      color: #9ca3af;
-    }
-
-    .code-string {
-      color: #fbbf24;
-    }
-
-    .code-boolean {
-      color: #34d399;
-    }
-
-    .code-comment {
-      color: #6b7280;
-      font-style: italic;
-    }
-
-    .footer {
-      border-top: 1px solid rgba(255, 255, 255, 0.06);
-      margin-top: 40px;
-      padding-top: 18px;
-      font-size: 12px;
-      color: var(--muted);
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 10px;
-    }
-
-    .footer span {
-      opacity: 0.9;
-    }
-
-    .footer strong {
-      color: var(--accent);
-      font-weight: 600;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JuliaOS | Expansions</title>
+  <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
-  <div class="page">
-    <!-- HEADER -->
-    <header>
-      <div class="logo-mark">
-        <div class="logo-orb"></div>
-        <div>
-          <div class="logo-text-main">JuliaOS</div>
-          <div class="logo-text-sub">Cognitive Operating System</div>
-        </div>
-      </div>
-      <nav>
-        <a href="#how-to-work">How to work with JuliaOS</a>
-        <a href="#modules">Core modules</a>
-        <a href="#rulebook">Rulebook</a>
-        <a href="#expansions">Expansions</a>
-        <a href="#quickstart">Quick start</a>
-      </nav>
-    </header>
 
-    <!-- HERO / HOW TO WORK WITH JULIAOS -->
-    <section id="how-to-work" class="section">
-      <div class="layout-main">
-        <div class="hero-card">
-          <div class="hero-inner">
-            <div class="pill">
-              <span class="pill-dot"></span>
-              <span>System online · Human‑grade analysis</span>
-            </div>
-            <div class="hero-kicker">How to work with JuliaOS</div>
-            <h1 class="hero-title">
-              A cognitive operating system for
-              <span>clarity, pattern recognition, and calm navigation of complexity.</span>
-            </h1>
-            <p class="hero-subtitle">
-              JuliaOS is not a persona. It is a living rulebook for how Julia thinks, maps,
-              and stabilizes complex systems—so you can plug into her operating model on day one.
-            </p>
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-left">
+      <a href="../index.html" class="nav-logo">Julia Jackson</a>
+    </div>
+    <div class="nav-right">
+      <a href="../index.html">Home</a>
+      <a href="../portfolio.html">Portfolio</a>
+      <a href="../business-systems-analyst-resume.html">Résumé</a>
+      <a href="../contact.html">Contact</a>
+    </div>
+  </nav>
 
-            <div class="hero-grid">
-              <div class="hero-panel">
-                <div class="hero-panel-title">Your interface</div>
-                <div class="hero-panel-body">
-                  You bring <strong>messy systems, ambiguous requirements, and political constraints</strong>.
-                  JuliaOS turns them into a navigable gameboard: pieces, rules, flows, and failure modes
-                  mapped in plain language and precise logic.
-                </div>
-              </div>
-              <div class="hero-panel">
-                <div class="hero-panel-title">What you actually get</div>
-                <div class="hero-panel-body">
-                  Not just deliverables—<strong>operational clarity</strong>. You leave with diagrams, narratives,
-                  and decision paths that your teams can replay, extend, and defend long after the meeting ends.
-                </div>
-              </div>
-            </div>
+  <!-- HERO -->
+  <header class="hero">
+    <h1 class="hero-title">Expansions</h1>
+    <p class="hero-subtitle">
+      The modular growth layer of JuliaOS — adding new mechanics, capabilities, and worlds as the system evolves.
+    </p>
+  </header>
 
-            <div class="hero-meta-row">
-              <div class="hero-meta-tag">
-                Engagement mode:
-                <span>Collaborative, ego‑free, rigor‑first</span>
-              </div>
-              <div class="hero-meta-tag">
-                Best used for:
-                <span>Legacy systems, migrations, cross‑functional puzzles</span>
-              </div>
-              <div class="hero-meta-tag">
-                Difficulty:
-                <span>Any. Complexity is just a puzzle size.</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <!-- SECTION 1 -->
+  <section class="section">
+    <h2 class="section-title">Purpose of Expansions</h2>
+    <p class="section-body">
+      Expansions are the evolutionary modules of JuliaOS. They allow the system to grow, adapt, and 
+      incorporate new mechanics without disrupting the core architecture. Just like a strategy game 
+      that releases new content packs, JuliaOS uses expansions to introduce fresh capabilities, 
+      frameworks, and insights as the environment changes.
+    </p>
+    <p class="section-body">
+      These expansions are not optional add‑ons — they are part of the living nature of JuliaOS. 
+      They ensure the system remains relevant, resilient, and endlessly replayable.
+    </p>
+  </section>
 
-        <aside class="side-card">
-          <div class="side-inner">
-            <div class="side-label">System profile</div>
-            <div class="side-title">JuliaOS in one sentence</div>
-            <p class="side-body">
-              A human operating system that treats every project as a gameboard—mapping rules, flows, and
-              edge cases until the path forward is obvious.
-            </p>
-            <div class="side-label">Interaction contract</div>
-            <p class="side-body">
-              Bring your real constraints, not your polished slide deck. JuliaOS runs best on
-              <strong>honest complexity, incomplete documentation, and stakeholders who care about outcomes</strong>.
-            </p>
-            <div class="side-badge-row">
-              <div class="side-badge"><span>Input:</span> Systems, people, constraints</div>
-              <div class="side-badge"><span>Output:</span> Clarity, flows, decisions</div>
-              <div class="side-badge"><span>Mode:</span> Analyst · Diplomat · Architect</div>
-            </div>
-          </div>
-        </aside>
-      </div>
-    </section>
+  <!-- SECTION 2 -->
+  <section class="section">
+    <h2 class="section-title">Types of Expansions</h2>
+    <p class="section-body">
+      JuliaOS supports multiple categories of expansions, each designed to enhance a different part 
+      of the cognitive system:
+    </p>
+    <p class="section-body">
+      <strong>• Mechanics Expansions:</strong> New rules, flows, or analytical tools.<br>
+      <strong>• Visualization Expansions:</strong> New ways to render the Gameboard or system maps.<br>
+      <strong>• Inquiry Expansions:</strong> New question types or interrogation patterns.<br>
+      <strong>• Human‑System Expansions:</strong> New models for understanding behavior and energy.<br>
+      <strong>• Continuity Expansions:</strong> New resilience frameworks, risk models, or scenario types.<br>
+      <strong>• World Expansions:</strong> Entirely new domains or problem spaces added to the OS.
+    </p>
+  </section>
 
-    <!-- CORE MODULES / ANALYTICAL CRAFT ENGINE -->
-    <section id="modules" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Core modules</h2>
-        <p class="section-subtitle">
-          The internal architecture of JuliaOS—how analysis, inquiry, and human systems plug together
-          to produce stable outcomes.
-        </p>
-      </div>
+  <!-- SECTION 3 -->
+  <section class="section">
+    <h2 class="section-title">How Expansions Integrate</h2>
+    <p class="section-body">
+      Expansions plug directly into the existing JuliaOS architecture without breaking the core system. 
+      They follow a strict compatibility model:
+    </p>
+    <p class="section-body">
+      <strong>1. Backward Compatibility:</strong> New mechanics never invalidate existing ones.<br>
+      <strong>2. Forward Flexibility:</strong> The system anticipates future growth and change.<br>
+      <strong>3. Seamless Integration:</strong> Expansions automatically connect to the Gameboard, 
+      Inquiry Pattern, Analytical Craft Engine, and Human‑System Interface.<br>
+      <strong>4. Modular Activation:</strong> Expansions can be activated or deactivated depending on 
+      the environment or scenario.<br>
+      <strong>5. Narrative Consistency:</strong> Every expansion fits the JuliaOS philosophy of clarity, 
+      structure, and calm navigation of complexity.
+    </p>
+  </section>
 
-      <div class="grid-3">
-        <article class="card card-soft">
-          <div class="card-label">Module · Analytical Craft Engine</div>
-          <h3 class="card-title">From raw chaos to structured gameboard</h3>
-          <p class="card-body">
-            The Analytical Craft Engine ingests <strong>messy inputs</strong>—conflicting requirements,
-            undocumented workflows, tribal knowledge—and converts them into a coherent map:
-            entities, flows, dependencies, and risks. It is equal parts reverse‑engineering,
-            pattern recognition, and narrative design.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Primary skill:</span> Reverse‑engineering legacy behavior
-            </div>
-            <div class="card-meta-pill">
-              <span>Artifacts:</span> Flows, narratives, decision paths
-            </div>
-          </div>
-        </article>
+  <!-- SECTION 4 -->
+  <section class="section">
+    <h2 class="section-title">Examples of Current Expansions</h2>
+    <p class="section-body">
+      JuliaOS already includes several expansions that enhance its capabilities:
+    </p>
+    <p class="section-body">
+      <strong>• The Alignment Engine:</strong> A module for resolving cross‑functional disagreements.<br>
+      <strong>• The Hidden Rules Detector:</strong> A mechanic for surfacing unspoken constraints.<br>
+      <strong>• The SME Signal Booster:</strong> A tool for amplifying expert insights and reducing noise.<br>
+      <strong>• The Scenario Deck:</strong> A set of structured prompts for exploring future states.<br>
+      <strong>• The Continuity Stress Pack:</strong> A resilience expansion for testing operational stability.
+    </p>
+  </section>
 
-        <article class="card card-soft">
-          <div class="card-label">Module · Inquiry Pattern</div>
-          <h3 class="card-title">Questions as a precision instrument</h3>
-          <p class="card-body">
-            JuliaOS runs on <strong>structured curiosity</strong>. The Inquiry Pattern is a repeatable
-            sequence of questions that surfaces hidden rules, unspoken constraints, and misaligned
-            assumptions—without putting anyone on the defensive.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Mode:</span> Calm, precise, non‑threatening
-            </div>
-            <div class="card-meta-pill">
-              <span>Used in:</span> JAD sessions, interviews, stakeholder alignment
-            </div>
-          </div>
-        </article>
+  <!-- SECTION 5 -->
+  <section class="section">
+    <h2 class="section-title">Why Expansions Matter</h2>
+    <p class="section-body">
+      A static system becomes obsolete. JuliaOS avoids this by embracing modular growth. Expansions 
+      allow the OS to evolve alongside new challenges, new environments, and new insights. They keep 
+      the system fresh, relevant, and capable of handling increasingly complex scenarios.
+    </p>
+    <p class="section-body">
+      With expansions, JuliaOS becomes a living universe — one that grows with its creator.
+    </p>
+  </section>
 
-        <article class="card card-soft">
-          <div class="card-label">Module · Human‑System Interface</div>
-          <h3 class="card-title">Translating between people and systems</h3>
-          <p class="card-body">
-            The Human‑System Interface is where <strong>technical rigor meets emotional intelligence</strong>.
-            JuliaOS reads the room, stabilizes “blue energy,” and translates between business, IT,
-            and operations so everyone sees the same board—even if they speak different dialects.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Superpower:</span> De‑escalating complexity into shared language
-            </div>
-            <div class="card-meta-pill">
-              <span>Outcome:</span> Decisions people can stand behind
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2026 Julia Jackson — JuliaOS v1.0</p>
+  </footer>
 
-    <!-- GAMEBOARD INTERFACE -->
-    <section class="section">
-      <div class="section-header">
-        <h2 class="section-title">Gameboard interface</h2>
-        <p class="section-subtitle">
-          How JuliaOS visualizes your world: pieces, rules, flows, and failure modes laid out like a
-          strategic board game.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card">
-          <div class="card-label">View · System as board</div>
-          <h3 class="card-title">Pieces, rules, and win conditions</h3>
-          <p class="card-body">
-            Every engagement starts by defining the <strong>pieces</strong> (systems, teams, data),
-            the <strong>rules</strong> (constraints, SLAs, regulations), and the
-            <strong>win conditions</strong> (what “success” actually means in your world).
-            Once the board is visible, the moves become obvious.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Good for:</span> Migrations, incident reviews, roadmap design
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-label">View · Failure as mechanic</div>
-          <h3 class="card-title">Edge cases are just alternate paths</h3>
-          <p class="card-body">
-            JuliaOS treats outages, defects, and “weird exceptions” as <strong>game mechanics</strong>
-            to be understood, not embarrassments to be hidden. Once mapped, they become guardrails,
-            test cases, and design inputs.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Output:</span> Test cases, risk maps, continuity patterns
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- RULEBOOK -->
-    <section id="rulebook" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Rulebook</h2>
-        <p class="section-subtitle">
-          The operating rules that govern how JuliaOS engages, analyzes, and delivers—so you know
-          exactly what to expect when you “start a game.”
-        </p>
-      </div>
-
-      <div class="rulebook-layout">
-        <article class="card card-soft">
-          <div class="card-label">Core rules</div>
-          <h3 class="card-title">How the system behaves</h3>
-          <ul class="rule-list">
-            <li>
-              <span class="rule-tag">Rule 01 · Clarity first</span><br />
-              <span class="rule-title">No move without a visible board.</span>
-              <span class="rule-desc">
-                If the system, process, or decision path is not visible, the first move is always
-                to map it.
-              </span>
-            </li>
-            <li>
-              <span class="rule-tag">Rule 02 · Ego off</span><br />
-              <span class="rule-title">Complexity is a puzzle, not a power move.</span>
-              <span class="rule-desc">
-                JuliaOS does not compete with stakeholders. It collaborates, translates, and stabilizes.
-              </span>
-            </li>
-            <li>
-              <span class="rule-tag">Rule 03 · Evidence over vibes</span><br />
-              <span class="rule-title">Narratives must be backed by the system.</span>
-              <span class="rule-desc">
-                Every story about “how things work” is tested against logs, data, and actual behavior.
-              </span>
-            </li>
-            <li>
-              <span class="rule-tag">Rule 04 · Human‑safe complexity</span><br />
-              <span class="rule-title">No one gets left behind.</span>
-              <span class="rule-desc">
-                Outputs are designed so non‑experts can follow the logic and experts can challenge it.
-              </span>
-            </li>
-            <li>
-              <span class="rule-tag">Rule 05 · Replayability</span><br />
-              <span class="rule-title">Every artifact should outlive the meeting.</span>
-              <span class="rule-desc">
-                Diagrams, narratives, and flows are built to be reused as training, documentation,
-                and decision support.
-              </span>
-            </li>
-          </ul>
-        </article>
-
-        <article class="card">
-          <div class="card-label">Interaction pattern</div>
-          <h3 class="card-title">What a typical “session” looks like</h3>
-          <p class="card-body">
-            A JuliaOS session feels like a <strong>strategic game night with real stakes</strong>:
-            we lay out the board, name the rules, test moves, and document the winning paths.
-          </p>
-          <ol class="rule-list" style="list-style: decimal; padding-left: 18px;">
-            <li>
-              <span class="rule-title">Load the world.</span>
-              <span class="rule-desc">
-                You bring context, constraints, and current pain points—no need to pre‑polish.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Map the board.</span>
-              <span class="rule-desc">
-                Systems, teams, data flows, and failure modes are laid out visually and narratively.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Test the moves.</span>
-              <span class="rule-desc">
-                We walk real scenarios through the map to expose gaps, risks, and opportunities.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Lock in the pattern.</span>
-              <span class="rule-desc">
-                You leave with artifacts that your teams can replay and extend without Julia in the room.
-              </span>
-            </li>
-          </ol>
-        </article>
-      </div>
-    </section>
-
-    <!-- EXPANSIONS -->
-    <section id="expansions" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Expansion packs</h2>
-        <p class="section-subtitle">
-          Optional modules you can “install” depending on the scenario—each one adds mechanics
-          without changing the core rules.
-        </p>
-      </div>
-
-      <div class="grid-3">
-        <article class="card">
-          <div class="card-label">Expansion · Migration Lab</div>
-          <h3 class="card-title">Legacy to future‑state</h3>
-          <p class="card-body">
-            Designed for <strong>large‑scale system migrations</strong> where behavior is poorly documented
-            and risk tolerance is low. JuliaOS reverse‑engineers the current state, defines safe
-            transition paths, and builds testable narratives for leadership.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Includes:</span> Data flow maps, cutover scenarios, rollback logic
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-label">Expansion · Incident Codex</div>
-          <h3 class="card-title">Turn outages into rulebooks</h3>
-          <p class="card-body">
-            For teams who want to <strong>learn from failure without blame</strong>. Incidents are treated
-            as rare game states: mapped, explained, and converted into continuity patterns,
-            runbooks, and test cases.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Output:</span> Post‑incident maps, continuity strategies, test suites
-            </div>
-          </div>
-        </article>
-
-        <article class="card">
-          <div class="card-label">Expansion · Analysis Interview Deck</div>
-          <h3 class="card-title">Hiring for the art of analysis</h3>
-          <p class="card-body">
-            A curated deck of <strong>scenario‑based questions</strong> that reveal how candidates map systems,
-            handle ambiguity, and communicate complexity—aligned with the JuliaOS philosophy of
-            analysis as a craft.
-          </p>
-          <div class="card-meta">
-            <div class="card-meta-pill">
-              <span>Use in:</span> Analyst, architect, and product interviews
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- QUICK START -->
-    <section id="quickstart" class="section">
-      <div class="section-header">
-        <h2 class="section-title">Quick start guide</h2>
-        <p class="section-subtitle">
-          How to “boot” JuliaOS for your scenario in a few clear steps—no installation required.
-        </p>
-      </div>
-
-      <div class="grid-2">
-        <article class="card card-soft">
-          <div class="card-label">Step‑by‑step</div>
-          <h3 class="card-title">Start a new “game” with JuliaOS</h3>
-          <ol class="rule-list" style="list-style: decimal; padding-left: 18px;">
-            <li>
-              <span class="rule-title">Name the puzzle.</span>
-              <span class="rule-desc">
-                “We’re migrating X,” “We keep breaking Y,” or “No one agrees on Z.”
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Expose the constraints.</span>
-              <span class="rule-desc">
-                Time, risk tolerance, politics, regulations—JuliaOS runs best on real constraints.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Load the pieces.</span>
-              <span class="rule-desc">
-                Systems, teams, data, vendors, customers—anything that can move or be affected.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Walk a real scenario.</span>
-              <span class="rule-desc">
-                Choose a concrete event (an order, an outage, a release) and trace it end‑to‑end.
-              </span>
-            </li>
-            <li>
-              <span class="rule-title">Capture the pattern.</span>
-              <span class="rule-desc">
-                Turn what we discover into diagrams, narratives, and test cases your teams can reuse.
-              </span>
-            </li>
-          </ol>
-        </article>
-
-        <article class="card">
-          <div class="card-label">Config snippet</div>
-          <h3 class="card-title">JuliaOS as a configuration file</h3>
-          <div class="code-block">
-            <span class="code-comment"># Minimal configuration to engage JuliaOS</span><br />
-            <span class="code-key">juliaOS</span>: {<br />
-            &nbsp;&nbsp;<span class="code-key">mode</span>: <span class="code-string">"analysis+stabilization"</span>,<br />
-            &nbsp;&nbsp;<span class="code-key">inputs</span>: [<span class="code-string">"systems"</span>, <span class="code-string">"people"</span>, <span class="code-string">"constraints"</span>],<br />
-            &nbsp;&nbsp;<span class="code-key">requires_polish</span>: <span class="code-boolean">false</span>,<br />
-            &nbsp;&nbsp;<span class="code-key">outputs</span>: [<span class="code-string">"maps"</span>, <span class="code-string">"narratives"</span>, <span class="code-string">"decision_paths"</span>],<br />
-            &nbsp;&nbsp;<span class="code-key">tone</span>: <span class="code-string">"calm, precise, ego-free"</span>,<br />
-            &nbsp;&nbsp;<span class="code-key">expansions_enabled</span>: [<span class="code-string">"migration_lab"</span>, <span class="code-string">"incident_codex"</span>]<br />
-            }<br /><br />
-            <span class="code-comment"># To start a session, set:</span><br />
-            <span class="code-key">juliaOS.session.puzzle</span> =
-            <span class="code-string">"Describe the system or problem in one honest sentence."</span>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="footer">
-      <span>
-        JuliaOS · A cognitive operating system by <strong>Julia</strong> — designed for clarity, pattern recognition,
-        and calm navigation of complexity.
-      </span>
-      <span>
-        Every scenario is an expansion pack. New mechanics welcome.
-      </span>
-    </footer>
-  </div>
 </body>
 </html>
